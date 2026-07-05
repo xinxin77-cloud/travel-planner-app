@@ -495,17 +495,20 @@ function renderTransitBlock(stop: TripStop) {
 
 function bindCoverEvents() {
   document.querySelector<HTMLInputElement>('#user-name')?.addEventListener('input', (event) => {
-    trip.userName = event.currentTarget.value
+    const target = event.target as HTMLInputElement
+    trip.userName = target.value
     saveTrip()
   })
 
   document.querySelector<HTMLInputElement>('#trip-title')?.addEventListener('input', (event) => {
-    trip.title = event.currentTarget.value
+    const target = event.target as HTMLInputElement
+    trip.title = target.value
     saveTrip()
   })
 
   document.querySelector<HTMLInputElement>('#trip-dates')?.addEventListener('input', (event) => {
-    trip.dates = event.currentTarget.value
+    const target = event.target as HTMLInputElement
+    trip.dates = target.value
     saveTrip()
   })
 
@@ -542,7 +545,7 @@ function bindBookEvents() {
       const stop = getSelectedStop()
       if (!stop) return
 
-      const target = event.currentTarget
+      const target = event.target as HTMLInputElement | HTMLTextAreaElement
       const key = target.dataset.key || ''
       const value = target.value
 
@@ -567,7 +570,9 @@ function bindBookEvents() {
     const stop = getSelectedStop()
     if (!stop) return
 
-    stop.isTransit = event.currentTarget.checked
+    const target = event.target as HTMLInputElement
+    stop.isTransit = target.checked
+
     saveTrip()
     render()
   })
@@ -590,8 +595,9 @@ function bindBookEvents() {
       const stop = getSelectedStop()
       if (!stop) return
 
-      const target = event.currentTarget
+      const target = event.target as HTMLInputElement
       const index = Number(target.dataset.index)
+
       stop.mustSee[index].title = target.value
       saveTrip()
     })
@@ -602,8 +608,9 @@ function bindBookEvents() {
       const stop = getSelectedStop()
       if (!stop) return
 
-      const target = event.currentTarget
+      const target = event.target as HTMLInputElement
       const index = Number(target.dataset.index)
+
       stop.mustSee[index].url = target.value
       saveTrip()
     })
@@ -616,6 +623,7 @@ function bindBookEvents() {
 
       const index = Number(button.dataset.index)
       stop.mustSee.splice(index, 1)
+
       saveTrip()
       render()
     })
