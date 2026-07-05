@@ -1,7 +1,7 @@
 :root {
   font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
-  color: #3f352c;
-  background: #f7f1e8;
+  color: #111827;
+  background: #eef0f3;
 }
 
 * {
@@ -10,10 +10,7 @@
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 220, 180, 0.35), transparent 30%),
-    radial-gradient(circle at top right, rgba(170, 210, 200, 0.28), transparent 28%),
-    #f7f1e8;
+  background: #eef0f3;
 }
 
 button,
@@ -22,187 +19,613 @@ textarea {
   font: inherit;
 }
 
-.page {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 48px 20px 80px;
-}
-
-.hero {
-  padding: 36px;
-  border-radius: 36px;
-  background: rgba(255, 252, 247, 0.82);
-  box-shadow: 0 20px 60px rgba(96, 72, 48, 0.08);
-  border: 1px solid rgba(160, 132, 95, 0.18);
-}
-
-.eyebrow {
-  margin: 0 0 18px;
-  letter-spacing: 0.32em;
-  font-size: 13px;
-  color: #9b7653;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.field span {
-  font-size: 14px;
-  color: #8b7561;
+button {
+  cursor: pointer;
+  border: 1px solid #111827;
+  background: #111827;
+  color: white;
+  padding: 10px 16px;
 }
 
 input,
 textarea {
   width: 100%;
-  border: 1px solid #e3d6c4;
-  background: #fffaf3;
-  border-radius: 18px;
-  padding: 14px 16px;
-  color: #3f352c;
-  outline: none;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #c68b5b;
-  box-shadow: 0 0 0 4px rgba(198, 139, 91, 0.14);
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 10px 12px;
+  color: #111827;
 }
 
 textarea {
-  min-height: 110px;
+  min-height: 96px;
   resize: vertical;
   line-height: 1.7;
 }
 
-textarea.note {
-  min-height: 72px;
+a {
+  color: #111827;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-button {
-  border: none;
-  cursor: pointer;
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: #c8834d;
-  color: white;
-  box-shadow: 0 10px 24px rgba(180, 112, 64, 0.2);
-}
-
-button:hover {
-  filter: brightness(0.97);
-}
-
-button.secondary {
-  background: #efe4d6;
-  color: #6b5542;
-  box-shadow: none;
-}
-
-.section {
-  margin-top: 34px;
-  padding: 30px;
-  border-radius: 32px;
-  background: rgba(255, 252, 247, 0.72);
-  border: 1px solid rgba(160, 132, 95, 0.18);
-  box-shadow: 0 16px 44px rgba(96, 72, 48, 0.06);
-}
-
-.section h2 {
-  margin: 0 0 22px;
-  font-size: 28px;
-}
-
-.days {
+.cover-shell {
+  min-height: 100vh;
   display: grid;
-  gap: 22px;
+  place-items: center;
+  padding: 40px 20px;
 }
 
-.day-card {
-  padding: 24px;
-  border-radius: 28px;
-  background: #fffaf3;
-  border: 1px solid #eadfce;
-}
-
-.day-header {
+.book-cover {
+  width: min(640px, 92vw);
+  min-height: 760px;
+  padding: 54px;
+  background: #f9fafb;
+  border: 1px solid #111827;
+  box-shadow: 18px 18px 0 #111827;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.cover-label,
+.small-label {
+  margin: 0;
+  color: #6b7280;
+  letter-spacing: 0.24em;
+  font-size: 13px;
+}
+
+.book-cover h1 {
+  margin: 42px 0 24px;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.field {
+  display: block;
+  margin-top: 16px;
+}
+
+.field span {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.cover-actions,
+.header-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ghost-btn {
+  background: white;
+  color: #111827;
+}
+
+.danger-btn {
+  margin-top: 20px;
+  background: #991b1b;
+  border-color: #991b1b;
+}
+
+.small-btn {
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+.book-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 26px 20px 60px;
+}
+
+.book-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 18px 22px;
+}
+
+.book-header h1 {
+  margin: 8px 0 6px;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 36px;
+}
+
+.book-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.book-layout {
+  display: grid;
+  grid-template-columns: 290px 1fr;
   gap: 16px;
+  align-items: stretch;
+}
+
+.contents-page,
+.detail-page {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 20px;
+}
+
+.contents-page h2,
+.detail-page h2 {
+  margin: 0 0 16px;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 30px;
+}
+
+.stop-tab {
+  width: 100%;
+  display: block;
+  text-align: left;
+  background: #f9fafb;
+  color: #111827;
+  border: 1px solid #d1d5db;
   margin-bottom: 12px;
 }
 
-.day-header strong {
-  font-size: 20px;
-  color: #b27748;
+.stop-tab strong {
+  display: block;
+  font-size: 17px;
 }
 
-.delete-day {
-  background: #f2ddd1;
-  color: #a15d45;
-  box-shadow: none;
-  padding: 9px 14px;
+.stop-tab em {
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  font-size: 13px;
+  color: #6b7280;
 }
 
-.form-grid {
+.stop-tab.active {
+  background: #111827;
+  color: white;
+}
+
+.stop-tab.active em {
+  color: #d1d5db;
+}
+
+.transit-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.detail-page {
+  min-height: 520px;
+}
+
+.edit-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 14px;
 }
 
-.preview {
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 22px;
-  background: #f8efe3;
-  border: 1px dashed #d2b89f;
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.preview p {
+.checkbox-field input {
+  width: auto;
+}
+
+.transit-box {
+  margin-top: 14px;
+  padding: 16px;
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+}
+
+.link-line {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.section-head span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.activity-list {
+  margin-bottom: 14px;
+}
+
+.activity-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr auto auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.empty-page {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* ===== 网页预览里的最终 A4 PDF 效果 ===== */
+
+.a4-preview {
+  width: min(1120px, 100%);
+  aspect-ratio: 297 / 210;
+  margin: 28px auto 0;
+  padding: 24px 30px;
+  background: #fffdf8;
+  border: 1px solid #d6d3d1;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.summary-title-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-title-vertical span {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: #44403c;
+}
+
+.summary-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.summary-head {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.summary-head p {
   margin: 0;
-  color: #b27748;
+  color: #78716c;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.summary-head h2 {
+  margin: 0;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 28px;
+  line-height: 1.1;
+  color: #1c1917;
+}
+
+.summary-head span {
+  color: #78716c;
+  font-size: 13px;
+}
+
+.summary-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  min-height: 0;
+}
+
+.summary-brace {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 500px;
+  line-height: 0.78;
+  color: #e7e5e4;
+  transform: scaleX(0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+}
+
+.summary-route {
+  display: grid;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 6px;
+  min-height: 0;
+}
+
+.summary-stop-item {
+  padding: 6px 0 8px;
+}
+
+.summary-city-line {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.summary-city-line h3 {
+  margin: 0;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 23px;
+  line-height: 1.1;
+  color: #1c1917;
+}
+
+.summary-city-line em {
+  font-style: normal;
+  color: #78716c;
+  font-size: 13px;
+}
+
+.summary-detail-line {
+  margin-top: 5px;
+  margin-left: 0;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 14px;
+}
+
+.summary-block b {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #78716c;
+}
+
+.summary-block p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #1c1917;
+}
+
+.summary-block small {
+  display: block;
+  margin-top: 3px;
+  color: #78716c;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.summary-transit-row {
+  margin: 2px 0 2px 0;
+  padding: 5px 10px 5px 12px;
+  background: #fff7ed;
+  border-left: 2px solid #fb923c;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.summary-transit-label {
+  color: #c2410c;
+  font-size: 12px;
   font-weight: 700;
 }
 
-.preview h3 {
-  margin: 8px 0 10px;
+.summary-transit-content {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
 }
 
-.preview ul {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.8;
+.summary-transit-content strong {
+  font-size: 13px;
+  color: #1c1917;
 }
 
-.preview small {
-  display: block;
-  margin-top: 12px;
-  color: #786a5f;
-  line-height: 1.6;
+.summary-transit-content span {
+  font-size: 12px;
+  color: #78716c;
 }
 
-@media (max-width: 700px) {
-  .page {
-    padding: 28px 14px 60px;
-  }
+.summary-transit-content em {
+  font-style: normal;
+  font-size: 12px;
+  color: #c2410c;
+}
 
-  .hero,
-  .section {
-    padding: 22px;
-  }
-
-  .form-grid {
+@media (max-width: 1000px) {
+  .book-layout,
+  .edit-grid,
+  .activity-row {
     grid-template-columns: 1fr;
+  }
+
+  .book-header {
+    flex-direction: column;
+  }
+
+  .a4-preview {
+    width: 100%;
+    aspect-ratio: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .summary-title-vertical span {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+
+  .summary-brace {
+    display: none;
+  }
+
+  .summary-body {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-head {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-city-line,
+  .summary-detail-line,
+  .summary-transit-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cover-shell,
+  .book-header,
+  .book-layout,
+  #export-pdf,
+  .ghost-btn,
+  #add-stop {
+    display: none !important;
+  }
+
+  .book-page {
+    width: 297mm;
+    height: 210mm;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .a4-preview {
+    width: 297mm;
+    height: 210mm;
+    aspect-ratio: auto;
+    margin: 0;
+    padding: 10mm 12mm;
+    border: none;
+    grid-template-columns: 16mm 1fr;
+    gap: 6mm;
+  }
+
+  .summary-title-vertical span {
+    font-size: 11pt;
+    letter-spacing: 1pt;
+  }
+
+  .summary-head {
+    grid-template-columns: 34mm 1fr auto;
+    gap: 4mm;
+    margin-bottom: 3mm;
+  }
+
+  .summary-head p {
+    font-size: 7pt;
+  }
+
+  .summary-head h2 {
+    font-size: 16pt;
+  }
+
+  .summary-head span {
+    font-size: 8pt;
+  }
+
+  .summary-body {
+    grid-template-columns: 7mm 1fr;
+    gap: 2.5mm;
+    height: 172mm;
+  }
+
+  .summary-brace {
+    font-size: 150pt;
+    transform: scaleX(0.22);
+  }
+
+  .summary-route {
+    gap: 1mm;
+  }
+
+  .summary-stop-item {
+    padding: 1mm 0 1.5mm;
+  }
+
+  .summary-city-line {
+    grid-template-columns: 28mm 1fr;
+    gap: 2mm;
+  }
+
+  .summary-city-line h3 {
+    font-size: 12pt;
+  }
+
+  .summary-city-line em {
+    font-size: 7pt;
+  }
+
+  .summary-detail-line {
+    margin-top: 1mm;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3mm;
+  }
+
+  .summary-block b {
+    font-size: 6.5pt;
+  }
+
+  .summary-block p,
+  .summary-block small {
+    font-size: 7pt;
+    line-height: 1.2;
+  }
+
+  .summary-transit-row {
+    margin: 0.8mm 0;
+    padding: 1mm 2mm;
+    grid-template-columns: 8mm 1fr;
+    gap: 2mm;
+  }
+
+  .summary-transit-label,
+  .summary-transit-content strong,
+  .summary-transit-content span,
+  .summary-transit-content em {
+    font-size: 7pt;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0;
   }
 }
